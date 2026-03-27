@@ -68,6 +68,8 @@ spawn-at-startup "kdeconnect"
 spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "copyq" 
+spawn-at-startup "wlsunset"
+
 
 // Border kapama
 
@@ -168,10 +170,10 @@ layout {
               //active-color "#a30914"
 	      //kırmızı
 
-              //active-color "#0567a3"
-	      //
+              active-color "#0567a3"
+	      //mavi
               
-	      active-color "#8a8a8a"
+	      //active-color "#8a8a8a"
 	      //gri
               
 	      //active-color "#8800ff"
@@ -260,7 +262,9 @@ binds {
     //Mod+B { spawn "firefox";}
     //Mod+B { spawn "brave";}
     Mod+B { spawn "zen-browser";}
+    Mod+Shift+B { spawn "librewolf";}
     Mod+M { spawn "spotify-launcher";}
+    //Mod+M { spawn "kitty" "-e" "ncspot";}
     Mod+N { spawn "obsidian";}
     Mod+E { spawn "nautilus";}
     Mod+Ctrl+S { spawn "steam";}
