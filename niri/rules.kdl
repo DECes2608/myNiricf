@@ -1,0 +1,115 @@
+//          ____        __                    
+//         / __ \__  __/ /__  _____
+//        / /_/ / / / / / _ \/ ___/
+//       / _, _/ /_/ / /  __(__  ) 
+//      /_/ |_|\__,_/_/\___/____/  
+//                                                  
+
+
+// Niri overview backdrop image
+layer-rule {
+    match namespace="awww-daemon-backdrop"
+    place-within-backdrop true
+}
+
+// Background effect for all windows
+window-rule {
+    match app-id=r#".*"#
+
+    background-effect {
+        xray true
+        blur true
+        noise 0.05
+        saturation 2
+    }
+}
+
+
+
+// Opacity and background effect for specific applications
+window-rule {
+    match app-id=r#"thunar"#
+    match app-id=r#"Alacritty"#
+    opacity 0.8
+
+    background-effect {
+        xray true
+        blur true
+        noise 0.05
+        saturation 2
+    }
+}
+
+// Rules for specific applications
+window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    match app-id=r#"app.zen_browser.zen$"# title="^Picture-in-Picture$"
+    match app-id=r#"brave-origin$"# title="^Picture-in-Picture$"
+    
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"zen"#
+    match app-id=r#"app.zen_browser.zen"#
+    match app-id=r#"brave-origin"#
+    match app-id=r#"helium-browser"#
+    match app-id=r#"code"#
+    open-maximized true
+}
+
+
+// Rules for xdg-desktop-portal-gtk
+window-rule {
+    match app-id=r#"xdg-desktop-portal-gtk"#
+    match app-id=r#"copyq"#
+
+    open-floating true
+    default-floating-position x=660 y=240
+    min-width 400
+    min-height 600
+}
+
+// Rules for specific layers
+layer-rule {
+    match namespace="waybar"
+
+    opacity 1.0
+    shadow {
+        off
+        softness 100
+        spread 12
+        offset x=0 y=0
+        draw-behind-window true
+        color "#00000064"
+    }
+}
+
+
+
+// Rules for hakuspace
+window-rule {
+    match app-id=r#"seycava"#
+    match app-id=r#"seylavat"#
+    match app-id=r#"seyclock"#
+
+    default-column-width { proportion 0.4; }
+}
+
+window-rule {
+    match app-id=r#"seycmd"#
+
+    default-column-width { proportion 0.6; }
+}
+
+
+
+// Rules for desktop icons
+window-rule {
+    match app-id="desktop_icons.py"
+    match title="Rename"
+
+    open-floating true
+    min-width 300
+    min-height 100
+}
